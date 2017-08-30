@@ -70,6 +70,8 @@ static const char *stm32f2xx_periph_name_arr[] = {
     ENUM_STRING(STM32_GPIOJ),
     ENUM_STRING(STM32_GPIOK),
 
+    ENUM_STRING(STM32_RNG_PERIPH),
+
     ENUM_STRING(STM32_PERIPH_COUNT)
 };
 
@@ -379,4 +381,9 @@ void stm32f2xx_init(
     sysbus_connect_irq(SYS_BUS_DEVICE(dma2), 5, qdev_get_gpio_in(nvic, STM32_DMA2_STREAM5_IRQ));
     sysbus_connect_irq(SYS_BUS_DEVICE(dma2), 6, qdev_get_gpio_in(nvic, STM32_DMA2_STREAM6_IRQ));
     sysbus_connect_irq(SYS_BUS_DEVICE(dma2), 7, qdev_get_gpio_in(nvic, STM32_DMA2_STREAM7_IRQ));
+
+    /* Setup the RNG */
+    DeviceState *rng = qdev_create(NULL, "f2xx_rng");
+    rng->id = stm32f2xx_periph_name_arr[STM32_RNG_PERIPH];
+    stm32_init_periph(rng, STM32_RNG_PERIPH, 0x50060800, NULL);
 }
