@@ -27,6 +27,7 @@
 #define QEMU_OS_POSIX_H
 
 #include <sys/time.h>
+#include <sys/sysmacros.h>
 
 void os_set_line_buffering(void);
 void os_set_proc_name(const char *s);

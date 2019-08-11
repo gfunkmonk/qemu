@@ -48,6 +48,8 @@ extern char **environ;
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <net/if.h>
+#include <sys/sysmacros.h>
+#include <sys/types.h>
 
 #ifdef FIFREEZE
 #define CONFIG_FSFREEZE
