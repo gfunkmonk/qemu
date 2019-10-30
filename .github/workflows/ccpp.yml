@@ -9,8 +9,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: ESLint checks
-      uses: gimenete/eslint-action@1.0
+    - uses: gimenete/eslint-action@1.0
     - name: apt-update
       RUN: sudo apt-get update && upgrade -y
     - name: apt-install
