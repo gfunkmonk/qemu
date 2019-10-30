@@ -9,7 +9,6 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-      - uses: gimenete/eslint-action@1.0
     - name: apt-update
       run: sudo apt-get update && upgrade -y
     - name: apt-install
