@@ -1,0 +1,25 @@
+name: C/C++ CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: apt-update
+      run: apt-get update && upgrade -y
+    - name: apt-install
+      run: apt-get install --no-install-recommends libglib2.0-dev libpixman-1-dev libfdt-dev gnutls-dev findutils make libtool \
+  zlib1g-dev device-tree-compiler libbluetooth-dev gcc g++ automake -y 
+    - name: configure
+      run: ./configure --enable-debug --disable-werror --target-list="arm-softmmu" --extra-cflags=-std=gnu99 \
+     --extra-cflags=-DSTM32_UART_NO_BAUD_DELAY --enable-vnc --disable-sdl
+    - name: make
+      run: make
+    - name: make check
+      run: make check
+    - name: make distcheck
+      run: make distcheck
