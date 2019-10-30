@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: apt-update
-      run: sudo apt-get update && upgrade -y
+      run: sudo apt-get update && apt-get upgrade -y
     - name: apt-install
       run: sudo apt-get install --no-install-recommends libglib2.0-dev libpixman-1-dev libfdt-dev gnutls-dev findutils make libtool zlib1g-dev device-tree-compiler libbluetooth-dev gcc g++ automake -y 
     - name: configure
