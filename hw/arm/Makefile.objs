@@ -29,6 +29,7 @@ obj-y += stm32f2xx_i2c.o stm32f7xx_i2c.o
 obj-y += stm32f2xx_crc.o
 obj-y += stm32f2xx_dma.o
 obj-y += stm32f2xx_pwr.o
+obj-y += stm32f2xx_rng.o
 obj-y += pebble.o
 obj-y += pebble_control.o
 obj-y += pebble_robert.o
